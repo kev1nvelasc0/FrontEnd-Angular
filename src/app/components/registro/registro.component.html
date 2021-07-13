@@ -1,0 +1,20 @@
+<div>
+    <div class="card-body">
+        <h1>Ingrese sus Datos</h1>
+        <form>
+            <div class="formgroup">
+                <input type="text" [(ngModel)]="usuario.nombre" name="nombre" placeholder="Ingrese su nombre" class="form-control" autofocus>
+            </div>
+            <div class="formgroup">
+                <input type="text" [(ngModel)]="usuario.apellido" name="apellido" placeholder="Ingrese su apellido" class="form-control" autofocus>
+            </div>
+            <div class="formgroup">
+                <input type="text" [(ngModel)]="usuario.correo" name="correo" placeholder="Ingrese su correo" class="form-control" autofocus>
+            </div>
+            <div class="formgroup">
+                <input type="password" [(ngModel)]="usuario.clave" name="clave" placeholder="Ingrese su contraseña" class="form-control" autofocus>
+            </div>
+            <button class="btn btn-success btn-block" (click)="guardarUsuario()">Guardar Registro</button>
+        </form>
+    </div>
+</div>

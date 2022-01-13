@@ -1,11 +1,10 @@
-<div class="col -md-4" *ngFor ="let u of usuario">
+<div class="col -md-4" *ngFor ="let ciudad of ciudades">
     <div class="card text-center">
-        Datos del Usuario
+        Datos de la Ciudad
     </div>
     <div class="card-body">
-        <p>Nombre: {{u.nombre}}</p>
-        <p>Apellido: {{u.apellido}}</p>
-        <p>Correo: {{u.correo}}</p>
-        <p>Clave cifrada: {{u.clave}}</p>
+        <p>Nombre: {{ciudad.nombre}}</p>
+        <p>Pais: {{ciudad.pais}}</p>
+        <p>Población: {{ciudad.poblacion}}</p>
     </div>
 </div>>

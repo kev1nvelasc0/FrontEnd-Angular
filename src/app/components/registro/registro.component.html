@@ -1,20 +1,24 @@
 <div>
     <div class="card-body">
-        <h1>Ingrese sus Datos</h1>
+        <h1>Ingrese los Datos</h1>
         <form>
+            <br>
             <div class="formgroup">
-                <input type="text" [(ngModel)]="usuario.nombre" name="nombre" placeholder="Ingrese su nombre" class="form-control" autofocus>
+                <input type="text" [(ngModel)]="ciudades.nombre" name="nombre" placeholder="Ingrese el nombre" class="form-control" autofocus>
             </div>
+            <br><br>
             <div class="formgroup">
-                <input type="text" [(ngModel)]="usuario.apellido" name="apellido" placeholder="Ingrese su apellido" class="form-control" autofocus>
+                <Label>Seleccione el país</Label>
+                <select name="lista" [(ngModel)]="ciudades.id_pais">
+                    <option [value]="p.id" *ngFor="let p of pais">{{p.nombre}}</option>
+                </select>
             </div>
+            <br><br>
             <div class="formgroup">
-                <input type="text" [(ngModel)]="usuario.correo" name="correo" placeholder="Ingrese su correo" class="form-control" autofocus>
+                <input type="text" [(ngModel)]="ciudades.poblacion" name="poblacion" placeholder="Ingrese la poblacion" class="form-control" autofocus>
             </div>
-            <div class="formgroup">
-                <input type="password" [(ngModel)]="usuario.clave" name="clave" placeholder="Ingrese su contraseña" class="form-control" autofocus>
-            </div>
-            <button class="btn btn-success btn-block" (click)="guardarUsuario()">Guardar Registro</button>
+            <br><br>
+            <button class="btn btn-success btn-block" (click)=" guardarCiudad()">Guardar Registro</button>
         </form>
     </div>
 </div>

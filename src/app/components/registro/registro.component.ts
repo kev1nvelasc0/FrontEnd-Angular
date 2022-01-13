@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/models/Usuario';
+import { Ciudades } from 'src/app/models/Ciudades';
 import { ServiceService } from '../../services/service.service';
 import {Router} from '@angular/router'
 
@@ -9,22 +9,36 @@ import {Router} from '@angular/router'
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  usuario: Usuario ={
+  pais: any = [];
+  paises: any =[{
+    nombre: "España",
+    id_pais: 1
+  },{
+    nombre:"Inglaterra",
+    id_pais: 2
+  }];
+  ciudades: Ciudades ={
     nombre: '',
-    apellido: '',
-    correo: '', 
-    clave: ''
+    poblacion: 0,
+    id_pais: 0
   }
   constructor(private servicio:ServiceService, private router:Router) { }
 
   ngOnInit(): void {
-    
+    this.getPais();
   }
-  guardarUsuario(){
-    this.servicio.createUsuarios(this.usuario)
-      .subscribe((newUsuario) =>{
-       console.log(newUsuario);
+
+  getPais(){
+    this.servicio.getPaises().subscribe(pais =>{
+      this.pais = pais;
+    });
+
+  }
+  guardarCiudad(){
+    this.servicio.createCiudades(this.ciudades)
+      .subscribe((newciudad) =>{
        this.router.navigate(['/tabla']);
       });
-}
+    }
+
 }

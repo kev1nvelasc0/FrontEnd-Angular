@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Usuario} from '../models/Usuario';
+import {Ciudades} from '../models/Ciudades';
 import {Sesion} from '../models/Sesion';
 @Injectable({
   providedIn: 'root'
@@ -8,11 +8,14 @@ import {Sesion} from '../models/Sesion';
 export class ServiceService {
 
   constructor(private http:HttpClient) { }
-  getUsuarios(){
-    return this.http.get('/api/obtenerusuarios');
+  getCiudades(){
+    return this.http.get('/api/get');
   }
-  createUsuarios(usuario: Usuario){
-    return this.http.post('/api/crearusuarios',usuario);
+  getPaises(){
+    return this.http.get('/api/getpais');
+  }
+  createCiudades(ciudades: Ciudades){
+    return this.http.post('/api/create',ciudades);
   }
   iniciarSesion(sesion:Sesion){
     return this.http.post('/api/iniciarsesion',sesion);

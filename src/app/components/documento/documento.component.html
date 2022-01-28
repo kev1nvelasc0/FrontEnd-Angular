@@ -1,0 +1,21 @@
+<div>
+    <h3 class="titulo">{{titulo}}</h3>
+    <p>{{texto}}</p>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">NOMBRE</th>
+      <th scope="col">PAIS</th>
+      <th scope="col">POBLACION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ciudad of ciudades;">
+      <td>{{ciudad.nombre}}</td>
+      <td>{{ciudad.pais}}</td>
+      <td>{{ciudad.poblacion}}</td>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-success" (click)="exportExcel()">Exportar Excel</button>

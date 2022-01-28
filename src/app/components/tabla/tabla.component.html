@@ -1,10 +1,48 @@
-<div class="col -md-4" *ngFor ="let ciudad of ciudades">
-    <div class="card text-center">
-        Datos de la Ciudad
-    </div>
-    <div class="card-body">
-        <p>Nombre: {{ciudad.nombre}}</p>
-        <p>Pais: {{ciudad.pais}}</p>
-        <p>Población: {{ciudad.poblacion}}</p>
-    </div>
-</div>>
+<h3 class="titulo">Listado de Ciudades</h3>
+<div class="divPrincipal">
+    <label >Filtrar información</label>
+    <input type="text" class="forms-control" placeholder="Buscar" [(ngModel)]="filterCiudad" name="filterCiudad"/>    
+<form class="card" id="datosCiudad">    
+<table class="table table-striped table-bordered" id="tabla">
+    <thead>
+        <tr>
+            <th scope="col">
+                Ciudad
+            </th>
+            <th scope="col">
+                Pais
+            </th>
+            <th scope="col">
+                Poblacion
+            </th>
+            <th scope="col" *ngIf="exportar">
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ciudad of ciudades | filter: filterCiudad">
+            <td>
+                {{ciudad.nombre}}
+            </td>
+            <td>
+                {{ciudad.pais}}
+            </td>
+            <td>
+                {{ciudad.poblacion}}
+            </td>
+            
+            <td *ngIf="exportar">
+                <button class="btn btn-success btn-block" [routerLink]="['/editregistro/', ciudad.id]">Editar</button>
+                <button class="btn btn-danger btn-block" (click)="eliminarCiudad(ciudad.id)">Eliminar</button>     
+            </td>
+        </tr>
+    </tbody>
+</table>
+</form>
+<label>Exportar:</label><button class="btn btn-danger btn-block" (click)="exportarPDF()">PDF</button>   
+<button class="btn btn-success btn-block" (click)="exportarXLS()">XLS</button>
+<button class="btn btn-info btn-block" (click)="exportarDOC()">DOC</button>   
+</div>
+<app-grafico></app-grafico>
+

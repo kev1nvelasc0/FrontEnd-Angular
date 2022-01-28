@@ -1,35 +1,38 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Routes, RouterModule} from '@angular/router';
-import {RegistroComponent} from './components/registro/registro.component';
+import { Routes, RouterModule } from '@angular/router';
+import { RegistroComponent } from './components/registro/registro.component';
 import { TablaComponent } from './components/tabla/tabla.component';
-import {LoginComponent} from './components/login/login.component';
-const routes: Routes =[
+import { EditregistroComponent } from './components/editregistro/editregistro.component';
+import { DocumentoComponent } from './components/documento/documento.component';
+
+const routes: Routes = [
   {
-    path:'',
-    redirectTo: '/registro',
-    pathMatch: 'full'
+    path: '',
+    redirectTo: '/tabla',
+    pathMatch: 'full',
   },
   {
     path: 'registro',
-    component: RegistroComponent
-  },{
+    component: RegistroComponent,
+  },
+  {
     path: 'tabla',
-    component: TablaComponent
-  },{
-    path: 'login',
-    component: LoginComponent
-  }
+    component: TablaComponent,
+  },
+  {
+    path: 'editregistro/:id',
+    component: EditregistroComponent,
+  },
+  {
+    path: 'documento',
+    component: DocumentoComponent,
+  },
 ];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports:[
-    RouterModule
-  ]
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
